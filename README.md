@@ -133,14 +133,6 @@ If you do a `make run` inside the `./client` folder, you start a dev server for 
 The client is accessible via the port `4200`. 
 The backend should be running to use the client.
 
-# notes
-
-https://mherman.org/blog/dockerizing-an-angular-app/
-https://www.maketecheasier.com/copy-move-docker-container-to-another-host/
-
-docker save frank > frank.tar
-docker load -i frank.tar
-
 # contact
 
 Jan Frederik Hake, <jan_hake@gmx.de>. [@enter_haken](https://twitter.com/enter_haken) on Twitter.

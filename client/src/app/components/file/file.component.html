@@ -1,0 +1,9 @@
+<div class="columns" *ngIf="showHtmlContent">
+  <div class="column" [innerHtml]="content"></div>
+</div>
+
+<pre *ngIf="!showHtmlContent">
+  <code [highlight]="content">
+  </code>
+</pre>
+

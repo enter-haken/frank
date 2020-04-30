@@ -1,0 +1,14 @@
+<div class="component">
+  <div class="columns is-multiline">
+    <div class="column is-one-quarter" *ngFor="let overview of repos">
+      <app-overview 
+        name="{{overview.name}}" 
+        mainFiletype="{{overview.mainFiletype}}" 
+        license="{{overview.license}}" 
+        fileCount="{{overview.fileCount}}"
+        headBranch="{{overview.headBranch}}"
+        url="{{overview.url}}">
+      </app-overview>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div *ngFor="let item of result">
+  <h2 class="is-size-7">
+    {{item.repoName}} - {{item.referenceName}}
+  </h2>
+  <h1 class="is-size-6">
+  <a [href]="item.link.url"><strong>{{item.link.title}}</strong></a>
+  </h1>
+  <pre *ngFor="let match of item.matches">
+    <code [highlight]="match">
+    </code>
+  </pre>
+</div>
+

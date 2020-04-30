@@ -1,0 +1,43 @@
+<div class="content" *ngIf="current">
+  <nav class="level">
+    <div class="level-left">
+      <div class="level-item">
+        <div class="select" *ngIf="branches">
+          <select #branch>
+            <option 
+              *ngFor="let branch of branches" 
+              [value]="branch.title"
+              [selected]="referenceName == branch.title">
+                {{branch.title}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="level-item">
+        <span *ngFor="let link of current.breadcrumbs">
+          <a [href]="link.url"> / {{link.title}}</a>
+        </span>
+      </div>
+    </div>
+
+    <!-- Right side -->
+    <div class="level-right">
+      <p class="level-item"><a class="button is-success">Clone</a></p>
+    </div>
+  </nav>
+  <section class="content" *ngIf="files != []">
+    <app-file-list [files]="files"></app-file-list>
+  </section>
+
+  <div *ngIf="current.raw_content">
+    <section class="content" *ngIf="current.formatted_content else raw">
+      <app-file [content]="current.formatted_content" [showHtmlContent]="true"></app-file>
+    </section>
+
+    <ng-template #raw>
+      <app-file [content]="current.raw_content" [showHtmlContent]="false"></app-file>
+    </ng-template>
+  </div>
+</div>
+

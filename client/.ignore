@@ -1,0 +1,23 @@
+#ignore file for silver searcher
+#currently ** is not working
+#https://github.com/ggreer/the_silver_searcher/wiki/Advanced-Usage
+dist/
+dist/Frank
+dist/Frank/polyfills-es2015.d614de4d927c58f7c571.js
+dist/Frank/main-es5.4798463ddb0c5be3ba7c.js.map
+dist/Frank/polyfills-es2015.d614de4d927c58f7c571.js.map
+dist/Frank/polyfills-es5.2e39e39aa7a1acb5183c.js
+dist/Frank/polyfills-es5.2e39e39aa7a1acb5183c.js.map
+dist/Frank/runtime-es2015.b1e01c6054a9feffbeda.js
+dist/Frank/runtime-es5.b1e01c6054a9feffbeda.js
+dist/Frank/runtime-es5.b1e01c6054a9feffbeda.js.map
+dist/Frank/main-es2015.9fce0f67f615997f5e95.js
+dist/Frank/styles.f12a1b772acccda0351e.css.map
+dist/Frank/index.html
+dist/Frank/runtime-es2015.b1e01c6054a9feffbeda.js.map
+dist/Frank/main-es2015.9fce0f67f615997f5e95.js.map
+dist/Frank/main-es5.4798463ddb0c5be3ba7c.js
+dist/Frank/styles.f12a1b772acccda0351e.css
+dist/Frank/3rdpartylicenses.txt
+dist/Frank/favicon.ico
+node_modules/

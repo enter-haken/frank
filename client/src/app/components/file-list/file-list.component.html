@@ -1,0 +1,24 @@
+<table class="table is-striped is-hoverable is-fullwidth" *ngIf="files">
+  <thead>
+    <th>Name</th>
+    <th>Last commit</th>
+    <th>Last update</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let file of files">
+      <td>
+        <span *ngIf="file.kind == 'tree'" class="icon">
+          <fa-icon icon="folder"></fa-icon>
+        </span>
+        <span *ngIf="file.kind == 'blob'" class="icon">
+          <fa-icon icon="file"></fa-icon>
+        </span>
+
+        <a [href]="file.client_url">
+          {{file.name}}</a>
+      </td>
+      <td>{{file.commit_message}}</td>
+      <td>{{file.relative_committer_date}}</td>
+    </tr>
+  </tbody>
+</table>

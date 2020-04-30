@@ -1,0 +1,11 @@
+// https://atom-morgan.github.io/styling-angular-v6-apps-with-bulma/
+
+$pre-padding: 0em !default;
+$content-pre-padding: 1em !default;
+
+@import "~bulma/bulma.sass";
+@import "~highlight.js/styles/github.css";
+
+body {
+  margin: 1rem;
+}

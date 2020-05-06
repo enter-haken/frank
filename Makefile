@@ -1,3 +1,8 @@
+NAME := hake/frank
+TAG := $$(git log -1 --pretty=%H)
+IMG := ${NAME}:${TAG}
+LATEST := ${NAME}:latest
+
 .PHONY: default
 default: build
 
@@ -56,8 +61,9 @@ release: build
 	#tar cf /tmp/frank.tar _build/prod/rel/*
 
 .PHONY: docker
-docker:
-	docker build -t frank .
+docker: 
+	docker build -t ${IMG} .
+	docker tag ${IMG} ${LATEST}
 
 .PHONY: docker_run
 docker_run:
@@ -84,17 +90,18 @@ docker_run:
 		-v /home/gooose/src/other/complete/enter-haken/xmlutils:/var/opt/frank/xmlutils \
 		-v /home/gooose/src/other/complete/enter-haken/brain:/var/opt/frank/brain \
 		-v /home/gooose/src/other/complete/enter-haken/memories:/var/opt/frank/memories \
+		-v /home/gooose/src/other/complete/enter-haken/frank:/var/opt/frank/frank \
+		-v /home/gooose/src/other/complete/enter-haken/retro:/var/opt/frank/retro \
 		-p 5052:4050 \
 		--name frank \
 		-d \
-		-t frank
+		-t ${LATEST}
 
 .PHONY: update
-update:
+update: docker
 	docker stop frank 
 	docker rm frank 
-	docker rmi frank 
-	make docker docker_run
+	make docker_run
 
 .PHONY: ignore
 ignore:

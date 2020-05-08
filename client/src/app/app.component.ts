@@ -20,7 +20,7 @@ export class AppComponent implements AfterViewInit {
   referenceName: string;
   isLoading: boolean = false;
 
-  @ViewChild('search', {static: false}) search: ElementRef;
+  @ViewChild('search') search: ElementRef;
 
   constructor(private gitService: GitService,
     private router: Router,

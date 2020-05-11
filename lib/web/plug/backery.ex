@@ -1,6 +1,6 @@
 defmodule Frank.Web.Plug.Bakery.Fetch do
   defmacro get_files() do
-    static_files = Path.wildcard("client/dist/Frank/*.{css,js,ico,html,png,jpg,webmanifest}")
+    static_files = Path.wildcard("client/dist/Frank/**/*.{css,js,ico,html,png,jpg,webmanifest}")
 
     static =
       static_files

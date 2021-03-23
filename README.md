@@ -135,7 +135,7 @@ The backend should be running to use the client.
 
 # contact
 
-Jan Frederik Hake, <jan_hake@gmx.de>. [@enter_haken](https://twitter.com/enter_haken) on Twitter.
+[hake.one](https://hake.one). Jan Frederik Hake, <jan_hake@gmx.de>. [@enter_haken](https://twitter.com/enter_haken) on Twitter. [enter-haken#7260](https://discord.com) on discord.
 
 [1]: https://frank.hake.one
 [2]: https://asdf-vm.com/#/core-manage-asdf-vm

@@ -2,7 +2,7 @@ use Mix.Config
 
 config :frank,
   port: 4040,
-  repo_root: "/var/opt/frank"
+  repo_root: "/home/gooose/src/active"
 
 #config :frank,
 #  repositories: [

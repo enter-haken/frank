@@ -4,7 +4,7 @@ defmodule Frank.MixProject do
   def project do
     [
       app: :frank,
-      version: "0.1.0",
+      version: File.read!("VERSION") |> String.trim(),
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
       deps: deps()

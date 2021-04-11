@@ -17,6 +17,7 @@ defmodule Frank.RepoStore do
 
   @impl true
   def handle_call(:get, _from, state) do
+  state.
     {:reply, state, state}
   end
 

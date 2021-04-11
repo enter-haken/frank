@@ -1,4 +1,4 @@
-FROM node:14.4.0 as client_builder 
+FROM node:14.8.0 as client_builder 
 
 # install chrome for protractor tests
 # only for tests
@@ -24,7 +24,7 @@ RUN make deep_clean build
 
 # backend builder
 
-FROM elixir:1.10.4 AS backend_builder
+FROM elixir:1.11.4 AS backend_builder
 
 WORKDIR /app
 
@@ -39,7 +39,7 @@ RUN make release
 
 # backend runner 
 
-FROM elixir:1.10.4-slim AS runner
+FROM elixir:1.11.4-slim AS runner
 
 RUN apt-get update && \
       apt-get install -y git \

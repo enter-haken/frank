@@ -3,10 +3,6 @@ defmodule Frank.RepoSupervisor do
 
   require Logger
 
-  def child_spec(_) do
-    Supervisor.Spec.supervisor(__MODULE__, [])
-  end
-
   def start_link do
     Logger.info("#{__MODULE__} started.")
     Supervisor.start_link(__MODULE__, [], name: __MODULE__)

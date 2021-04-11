@@ -1,7 +1,9 @@
-NAME := hake/frank
-TAG := $$(git log -1 --pretty=%H)
-IMG := ${NAME}:${TAG}
-LATEST := ${NAME}:latest
+VERSION := `cat VERSION` 
+
+CURRENT := frank:${VERSION}
+DOCKERHUB_TARGET := enterhaken/frank:${VERSION}
+DOCKERHUB_TARGET_LATEST := enterhaken/frank:latest
+
 
 .PHONY: default
 default: build
@@ -62,28 +64,19 @@ release: build
 
 .PHONY: docker
 docker: 
-	docker build -t ${IMG} .
-	docker tag ${IMG} ${LATEST}
+	docker build -t ${CURRENT} .
+
+.PHONY: docker_push
+docker_push:
+	docker tag $(CURRENT) $(DOCKERHUB_TARGET)
+	docker push $(DOCKERHUB_TARGET)
+	docker tag $(CURRENT) $(DOCKERHUB_TARGET_LATEST)
+	docker push $(DOCKERHUB_TARGET_LATEST)
 
 .PHONY: docker_run
 docker_run:
 	docker run \
-		-v /home/gooose/src/other/complete/enter-haken/appointment:/var/opt/frank/appointment \
-		-v /home/gooose/src/other/complete/enter-haken/blog:/var/opt/frank/blog \
-		-v /home/gooose/src/other/complete/enter-haken/dotfiles:/var/opt/frank/dotfiles \
-		-v /home/gooose/src/other/complete/enter-haken/enter-haken.github.io:/var/opt/frank/enter-haken.github.io \
-		-v /home/gooose/src/other/complete/enter-haken/hakyll-dot-demo:/var/opt/frank/hakyll-dot-demo \
-		-v /home/gooose/src/other/complete/enter-haken/jsonutils:/var/opt/frank/jsonutils \
-		-v /home/gooose/src/other/complete/enter-haken/mongoscripts:/var/opt/frank/mongoscripts \
-		-v /home/gooose/src/other/complete/enter-haken/mquery:/var/opt/frank/mquery \
-		-v /home/gooose/src/other/complete/enter-haken/plotTimeStamps:/var/opt/frank/plotTimeStamps \
-		-v /home/gooose/src/other/complete/enter-haken/profanityChatLog:/var/opt/frank/profanityChatLog \
-		-v /home/gooose/src/other/complete/enter-haken/rasmus:/var/opt/frank/rasmus \
-		-v /home/gooose/src/other/complete/enter-haken/schema:/var/opt/frank/schema \
-		-v /home/gooose/src/other/complete/enter-haken/scripts:/var/opt/frank/scripts \
-		-v /home/gooose/src/other/complete/enter-haken/frank:/var/opt/frank/frank \
-		-v /home/gooose/src/other/complete/enter-haken/retro:/var/opt/frank/retro \
-		-v /home/gooose/src/other/complete/enter-haken/book:/var/opt/frank/book \
+		-v /home/gooose/src/active:/var/opt/frank/ \
 		-p 5052:4050 \
 		--name frank \
 		-d \
